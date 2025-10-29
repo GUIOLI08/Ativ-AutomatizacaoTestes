@@ -1,0 +1,20 @@
+name: Atividade Testes Automatizados
+
+on: [push, pull_request]
+
+jobs:
+  continuos-integration:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+      - name: Configuração do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+      - name: Baixar dependencias
+        run: npm ci --includes=dev
+      - name: Rodar Testes
+        uses: npm run test
+        
