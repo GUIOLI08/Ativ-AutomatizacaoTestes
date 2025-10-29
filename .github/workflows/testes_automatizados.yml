@@ -16,5 +16,7 @@ jobs:
       - name: Baixar dependencias
         run: npm ci --includes=dev
       - name: Rodar Testes
-        uses: npm run test
+        uses: | 
+          npm.cmd run test
+          npm run test
         
